@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from "@angular/forms";
+import{HttpService} from '../http.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { HttpService } from '../http.service';
+import {Api} from '../classes/api';
 
 @Component({
   selector: 'app-questions',
@@ -11,29 +11,40 @@ import { HttpService } from '../http.service';
 
 export class QuestionsComponent implements OnInit {
 
-  data= [];
+  data:any = []
 
   constructor(
-    public fb: FormBuilder,
+    private http: HttpClient,
     private httpService: HttpService
-  ) { 
-    /**this.http.get('http://0.0.0.0:8063/api/get/ubuntu/questions?api_key=kaipuLla401326',this.httpOptions).toPromise().then( data => {
-      console.log(data);
-    })**/
-  }
-
-  ngOnInit(): void {
-    this.httpService.get().subscribe((ret: any[])=>{
-      console.log(ret);
-      this.data = ret;
-      console.log(this.data);
-    }) 
-  }
-
+  ) { }
+  
+  //lstapi:Api[];
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
+  }
+
+  ngOnInit(): void {
+
+    /**
+    this.httpService.getquestions()
+    .subscribe(
+      data=>{
+        this.lstapi=data;
+      }
+
+    );
+    */
+
+
+    this.http.get('http://0.0.0.0:8063/api/get/ubuntu/questions?api_key=kaipuLla401326',this.httpOptions).subscribe( 
+      (res) => {
+        this.data = res
+        console.log(this.data)
+      },
+      (error) => console.log(error)
+    )
   } 
 
 }

@@ -8,13 +8,15 @@ import { FooterComponent } from './footer/footer.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpService } from './http.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    QuestionsComponent
+    QuestionsComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -22,7 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 

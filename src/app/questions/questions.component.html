@@ -1,12 +1,30 @@
-<div>
-    <ul>
-        <li *ngFor="let item of data">
-            {{item.name}}
-        </li>
-    </ul>           
+<!-- 
+<table>
+    <tr>
+        <th>question</th>
+        <th>answer_option_1</th>
+        <th>answer_option_2</th>
+        <th>answer_option_3</th>
+        <th>answer_option_4</th>
+    </tr>
+    <tr *ngFor="let ap of lstapi">
+        <td>{{ap.question}}</td>
+        <td>{{ap.answer-option_1}}</td>
+        <td>{{ap.answer-option_2}}</td>
+        <td>{{ap.answer-option_3}}</td>
+        <td>{{ap.answer-option_4}}</td>
+    </tr>
+</table>
+ -->
+
+<div *ngFor="let ques of data">
+    <p>
+        {{ques.question}}
+    </p>
 </div>
-<!--
-<section class="inner-pg">
+
+
+<!-- <section class="inner-pg">
     <div class="container">
                 <div class="card">
                     <form>
@@ -23,6 +41,7 @@
                         <br><br>
                             
                             
+                        
                         <div class="form-group col-12">
                             <div>
                                 <p>'mkdir' command is used for ______</p>
@@ -138,7 +157,7 @@
             
    </div>
 </section>
+ -->
 
--->
 
 
